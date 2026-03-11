@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.image("logo.png", width=400)
+st.image("logo.png")
 st.set_page_config(page_title="Trouble shooting", page_icon="🔧", layout="wide")
 
 st.title("Trouble shooting Tool")
@@ -355,6 +355,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
