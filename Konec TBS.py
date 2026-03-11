@@ -27,6 +27,9 @@ if st.session_state.code is not None:
     elif code == 3:
         st.write("Contact Konec")
 
+    elif code == 4:
+        st.write("Contact the electrician(Might be wiring issue)")
+
     elif code == 9999999:
         st.write("Case closed")
     
@@ -266,6 +269,158 @@ if st.session_state.step == 9:
 
     st.image("AP Light.png", width=500)
 
+# Is Konec gateway online / offline
+if st.session_state.step == 10:
+
+    st.subheader("Is Konec gateway online / offline")
+    st.write("The gateway status light on AP is on, but the gateway itself is still offline.")
+
+    col1, col2= st.columns(2)
+
+    if col1.button("Online", key="green_btn"):
+        next_step(10)
+        gateway_num = 1
+
+    if col2.button("Offline", key="red_btn"):
+        next_step(11)
+        gateway_num = 2
+
+    st.write("")
+        
+    st.write("")
+
+    if st.button("Back", key="black_btn"):
+        next_step(9)
+
+# Check Konec gateway status in the manhole
+if st.session_state.step == 11:
+
+    st.subheader("Check Konec gateway status in the manhole")
+    st.write("Check the power connection of the gateway / Re-plug the power adapter.")
+    st.write("Note: Do not replace the original adapter, as its voltage is different from standard specifications.")
+
+    col1, col2, col3= st.columns(3)
+
+    if col1.button("One light on"):
+        next_step(13)
+        manhole_num = 1
+
+    if col2.button("No light on"):
+        next_step(14)
+        manhole_num = 2
+
+    if col3.button("Starts with two lights, then goes down to one, and then all of them turn off."):
+        st.session_state.code = 4
+        st.rerun()
+
+    st.write("")
+        
+    st.write("")
+
+    if st.button("Back", key="black_btn"):
+        if st.orange_num == 1:
+            next_step(10)
+        else:
+            next_step(9)
+
+# Are the other devices in the room offline / online?
+if st.session_state.step == 12:
+
+    st.subheader("Are the other devices in the room offline / online?")
+
+    col1, col2= st.columns(2)
+
+    if col1.button("Online", key="green_btn"):
+        next_step(15)
+
+    if col2.button("Offline", key="red_btn"):
+        st.session_state.code = 3
+        st.rerun()
+
+    st.write("")
+        
+    st.write("")
+
+    if st.button("Back", key="black_btn"):
+        if st.gateway_num == 1:
+            next_step(10)
+        else:
+            next_step(13)
+
+# Is Konec gateway online / offline
+if st.session_state.step == 13:
+
+    st.subheader("Is Konec gateway online / offline?")
+
+    col1, col2= st.columns(2)
+
+    if col1.button("Online", key="green_btn"):
+        next_step(12)
+
+
+    if col2.button("Offline", key="red_btn"):
+        st.session_state.code = 3
+        st.rerun()
+
+    st.write("")
+        
+    st.write("")
+
+    if st.button("Back", key="black_btn"):
+        if st.manhole_num == 1:
+            next_step(11)
+        else:
+            next_step(14)
+
+# Check the network cable connection / Re-plug the cable
+if st.session_state.step == 14:
+
+    st.subheader("Check the network cable connection / Re-plug the cable")
+
+    col1, col2= st.columns(2)
+
+    if col1.button("One light on"):
+        next_step(13)
+
+
+    if col2.button("No light on"):
+        st.session_state.code = 3
+        st.rerun()
+
+    st.write("")
+        
+    st.write("")
+
+    if st.button("Back", key="black_btn"):
+        next_step(11)
+
+# Does the defect still exist?
+if st.session_state.step == 15:
+
+    st.subheader("Does the defect still exist? Are there any other defects?")
+
+    col1, col2= st.columns(2)
+
+    if col1.button("Yes"):
+        next_step(99)
+
+    if col2.button("No"):
+        st.session_state.code = 9999999
+        st.rerun()
+
+    st.write("")
+        
+    st.write("")
+
+    if st.button("Back", key="black_btn"):
+        next_step(14)
+
+
+if st.session_state.step == 99:
+        st.session_state.code = 8000000
+        st.rerun()
+
+
 
 
 
@@ -354,6 +509,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
