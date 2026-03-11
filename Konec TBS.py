@@ -264,16 +264,15 @@ elif st.session_state.step == 2001:
 st.html("""
     <style>
         .st-key_red_btn button {
-            background-color: #fa7f7f !important;
+            background-color: #ff8888 !important;
             color: black !important;
             border: none;
         }
         .st-key-red_btn button:hover {
-            background-color: #e13939 !important;
+            background-color: #ff4444 !important;
             border: none;
         }
-    </style>
-    <style>
+
         .st-key-black_btn button {
             background-color: #000000 !important;
             color: white !important;
@@ -283,17 +282,15 @@ st.html("""
             background-color: #000000 !important;
             border: none;
         }
-    </style>
-    <style>
+
         .st-key-green_btn button {
-            background-color: #ff4b4b !important;
+            background-color: #88ff91 !important;
             color: black !important;
             border: none;
         }
         .st-key-green_btn button:hover {
-            background-color: #39e14a !important;
+            background-color: #3bcf45 !important;
             border: none;
         }
     </style>
 """)
-
