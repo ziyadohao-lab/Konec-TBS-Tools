@@ -183,7 +183,7 @@ if st.session_state.step == 5:
     if st.button("Back", key="black_btn"):
         next_step(4)
     
-    st.image("AP Light.png", width=200)
+    st.image("AP Light.png")
 
 # 打开电闸
 if st.session_state.step == 6:
@@ -355,6 +355,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
