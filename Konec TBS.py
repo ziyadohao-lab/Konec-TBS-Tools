@@ -84,7 +84,7 @@ if st.session_state.step == 0:
 # Step 1 Which Switch
 if st.session_state.step == 1:
 
-    st.subheader("Which switch is experiencing a problem?")
+    st.subheader("Which switch is experiencing the problem?")
 
     col1, col2, col3, col4, col5, col6 = st.columns(6)
 
@@ -107,8 +107,96 @@ if st.session_state.step == 1:
         next_step(0)
 
 
-# Step 2 Entry Switch Common Issue
+# Entry Switch Common Issue
 elif st.session_state.step == 2:
+
+    st.subheader("Common Issue")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    if col1.button("Issue1"):
+        st.session_state.code = 8000000
+        st.rerun()
+
+    if col2.button("Issue2"):
+        st.session_state.code = 8000000
+        st.rerun()
+
+    if col3.button("Issue3"):
+        st.session_state.code = 8000000
+        st.rerun()
+
+    if col4.button("Back"):
+        next_step(1)
+
+# Bathroom Switch Common Issue
+elif st.session_state.step == 101:
+
+    st.subheader("Common Issue")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    if col1.button("Issue1"):
+        st.session_state.code = 8000000
+        st.rerun()
+
+    if col2.button("Issue2"):
+        st.session_state.code = 8000000
+        st.rerun()
+
+    if col3.button("Issue3"):
+        st.session_state.code = 8000000
+        st.rerun()
+
+    if col4.button("Back"):
+        next_step(1)
+
+# Kitchen Switch Common Issue
+elif st.session_state.step == 201:
+
+    st.subheader("Common Issue")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    if col1.button("Issue1"):
+        st.session_state.code = 8000000
+        st.rerun()
+
+    if col2.button("Issue2"):
+        st.session_state.code = 8000000
+        st.rerun()
+
+    if col3.button("Issue3"):
+        st.session_state.code = 8000000
+        st.rerun()
+
+    if col4.button("Back"):
+        next_step(1)
+
+# Cooktop Switch Common Issue
+elif st.session_state.step == 301:
+
+    st.subheader("Common Issue")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    if col1.button("Issue1"):
+        st.session_state.code = 8000000
+        st.rerun()
+
+    if col2.button("Issue2"):
+        st.session_state.code = 8000000
+        st.rerun()
+
+    if col3.button("Issue3"):
+        st.session_state.code = 8000000
+        st.rerun()
+
+    if col4.button("Back"):
+        next_step(1)
+
+# Desk Switch Common Issue
+elif st.session_state.step == 401:
 
     st.subheader("Common Issue")
 
