@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.image("logo.png", width=200)
+st.image("logo.png", width=400)
 st.set_page_config(page_title="Trouble shooting", page_icon="🔧", layout="wide")
 
 st.title("Trouble shooting Tool")
@@ -183,7 +183,7 @@ if st.session_state.step == 5:
     if st.button("Back", key="black_btn"):
         next_step(4)
     
-    st.image("AP Light.png")
+    st.image("AP Light.png", width=600)
 
 # 打开电闸
 if st.session_state.step == 6:
@@ -355,6 +355,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
