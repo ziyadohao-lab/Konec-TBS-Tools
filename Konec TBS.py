@@ -88,20 +88,20 @@ if st.session_state.step == 1:
 
     col1, col2, col3, col4, col5, col6 = st.columns(6)
 
-    if col1.button("Entry Switch"):
+    if col1.button("Entry"):
         next_step(2)
 
-    if col2.button("Bathroom Switch"):
-        next_step(501)
+    if col2.button("Bathroom"):
+        next_step(101)
 
-    if col3.button("Kitchen Switch"):
-        next_step(1001)
+    if col3.button("Kitchen"):
+        next_step(201)
 
-    if col4.button("Cooktop Switch"):
-        next_step(1501)
+    if col4.button("Cooktop"):
+        next_step(301)
 
-    if col5.button("Desk Switch"):
-        next_step(2001)
+    if col5.button("Desk"):
+        next_step(401)
 
     if col6.button("Back"):
         next_step(0)
@@ -171,3 +171,4 @@ elif st.session_state.step == 1501:
 elif st.session_state.step == 2001:
         st.session_state.code = 8000000
         st.rerun()
+
