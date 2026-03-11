@@ -293,8 +293,13 @@ st.html("""
             background-color: #ff4444 !important;
             border: none;
         }
+
+        div.stButton > button {
+        width: 100%;
+        }
         
     </style>
 """)
+
 
 
