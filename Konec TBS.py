@@ -106,7 +106,7 @@ if st.session_state.step == 1:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-    next_step(1)
+        next_step(1)
 
 
 # Entry Switch Common Issue
@@ -302,6 +302,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
