@@ -240,8 +240,7 @@ if st.session_state.step == 8:
 
     st.image("AP Light.png", width=200)
 
-# Is the orange light on？
-(near the AP network port.)
+# Is the orange light on？(near the AP network port.)
 if st.session_state.step == 9:
 
     st.subheader("Is the orange light on?(near the AP network port.)")
@@ -356,6 +355,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
