@@ -88,7 +88,7 @@ if st.session_state.step == 1:
 
     col1, col2, col3, col4, col5, col6 = st.columns(6)
 
-    if col1.button("Entry，key="my_red_btn""):
+    if col1.button("Entry"，key="my_red_btn"):
         next_step(2)
 
     if col2.button("Bathroom"):
@@ -276,3 +276,4 @@ st.html("""
         }
     </style>
 """)
+
