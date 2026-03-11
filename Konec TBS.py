@@ -104,6 +104,8 @@ if st.session_state.step == 1:
         next_step(401)
 
     st.write("")
+        
+    st.write("")
 
     if st.button("Back", key="black_btn"):
         next_step(1)
@@ -302,6 +304,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
