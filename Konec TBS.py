@@ -112,7 +112,7 @@ elif st.session_state.step == 2:
 
     st.subheader("Common Issue")
 
-    col1, col2, col3, col4 = st.columns(4)
+    col0, col1, col2, col3 = st.columns(4)
 
     if col1.button("Issue1", key="red_btn"):
         st.session_state.code = 8000000
@@ -264,7 +264,7 @@ elif st.session_state.step == 2001:
 st.html("""
     <style>
         .st-key_red_btn button {
-            background-color: #ff4b4b !important;
+            background-color: #fa7f7f !important;
             color: black !important;
             border: none;
         }
@@ -286,7 +286,7 @@ st.html("""
     </style>
     <style>
         .st-key-green_btn button {
-            background-color: #fa7f7f !important;
+            background-color: #ff4b4b !important;
             color: black !important;
             border: none;
         }
