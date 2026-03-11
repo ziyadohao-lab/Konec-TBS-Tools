@@ -103,6 +103,8 @@ if st.session_state.step == 1:
     if col5.button("Desk"):
         next_step(401)
 
+    st.write("")
+
     if col6.button("Back", key="black_btn"):
         next_step(0)
 
@@ -300,6 +302,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
