@@ -88,7 +88,7 @@ if st.session_state.step == 1:
 
     col1, col2, col3, col4, col5, col6 = st.columns(6)
 
-    if col1.button("Entry", key="my_red_btn"):
+    if col1.button("Entry"):
         next_step(2)
 
     if col2.button("Bathroom"):
@@ -103,7 +103,7 @@ if st.session_state.step == 1:
     if col5.button("Desk"):
         next_step(401)
 
-    if col6.button("Back"):
+    if col6.button("Back", key="black_btn"):
         next_step(0)
 
 
@@ -114,11 +114,11 @@ elif st.session_state.step == 2:
 
     col1, col2, col3, col4 = st.columns(4)
 
-    if col1.button("Issue1"):
+    if col1.button("Issue1", key="red_btn"):
         st.session_state.code = 8000000
         st.rerun()
 
-    if col2.button("Issue2"):
+    if col2.button("Issue2", key="green_btn"):
         st.session_state.code = 8000000
         st.rerun()
 
@@ -126,7 +126,7 @@ elif st.session_state.step == 2:
         st.session_state.code = 8000000
         st.rerun()
 
-    if col4.button("Back"):
+    if col4.button("Back", key="black_btn"):
         next_step(1)
 
 # Bathroom Switch Common Issue
@@ -148,7 +148,7 @@ elif st.session_state.step == 101:
         st.session_state.code = 8000000
         st.rerun()
 
-    if col4.button("Back"):
+    if col4.button("Back", key="black_btn"):
         next_step(1)
 
 # Kitchen Switch Common Issue
@@ -170,7 +170,7 @@ elif st.session_state.step == 201:
         st.session_state.code = 8000000
         st.rerun()
 
-    if col4.button("Back"):
+    if col4.button("Back", key="black_btn"):
         next_step(1)
 
 # Cooktop Switch Common Issue
@@ -192,7 +192,7 @@ elif st.session_state.step == 301:
         st.session_state.code = 8000000
         st.rerun()
 
-    if col4.button("Back"):
+    if col4.button("Back", key="black_btn"):
         next_step(1)
 
 # Desk Switch Common Issue
@@ -214,7 +214,7 @@ elif st.session_state.step == 401:
         st.session_state.code = 8000000
         st.rerun()
 
-    if col4.button("Back"):
+    if col4.button("Back", key="black_btn"):
         next_step(1)
 
     
@@ -239,7 +239,7 @@ elif st.session_state.step == 501:
         st.session_state.code = 8000000
         st.rerun()
 
-    if col4.button("Back"):
+    if col4.button("Back", key="black_btn"):
         next_step(1)
 
 
@@ -263,18 +263,36 @@ elif st.session_state.step == 2001:
 
 st.html("""
     <style>
-        /* 定位到带有特定 key 的按钮 */
-        .st-key-my_red_btn button {
+        .st-key_red_btn button {
             background-color: #ff4b4b !important;
+            color: black !important;
+            border: none;
+        }
+        .st-key-red_btn button:hover {
+            background-color: #e13939 !important;
+            border: none;
+        }
+    </style>
+    <style>
+        .st-key-black_btn button {
+            background-color: #000000 !important;
             color: white !important;
             border: none;
         }
-        /* 悬停效果 */
-        .st-key-my_red_btn button:hover {
-            background-color: #ff3333 !important;
+        .st-key-black_btn button:hover {
+            background-color: #000000 !important;
+            border: none;
+        }
+    </style>
+    <style>
+        .st-key-green_btn button {
+            background-color: #fa7f7f !important;
+            color: black !important;
+            border: none;
+        }
+        .st-key-green_btn button:hover {
+            background-color: #39e14a !important;
             border: none;
         }
     </style>
 """)
-
-
