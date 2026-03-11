@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.image("logo.png")
+st.image("logo.png", width=200)
 st.set_page_config(page_title="Trouble shooting", page_icon="🔧", layout="wide")
 
 st.title("Trouble shooting Tool")
@@ -145,8 +145,7 @@ if st.session_state.step == 4:
     col1, col2= st.columns(2)
 
     if col1.button("ON", key="green_btn"):
-        st.session_state.code = 3
-        st.rerun()
+        next_step(5)
 
     if col2.button("OFF", key="red_btn"):
         next_step(6)
@@ -317,44 +316,6 @@ elif st.session_state.step == 9999:
 
 
 st.html("""
-    <style>
-
-        .st-key-black_btn button {
-            background-color: #000000 !important;
-            color: white !important;
-            border: none;
-        }
-        .st-key-black_btn button:hover {
-            background-color: #000000 !important;
-            border: none;
-        }
-
-        .st-key-green_btn button {
-            background-color: #88ff91 !important;
-            color: black !important;
-            border: none;
-        }
-        .st-key-green_btn button:hover {
-            background-color: #3bcf45 !important;
-            border: none;
-        }
-        
-        .st-key-red_btn button {
-            background-color: #ff8888 !important;
-            color: black !important;
-            border: none;
-        }
-        .st-key-red_btn button:hover {
-            background-color: #ff4444 !important;
-            border: none;
-        }
-
-        div.stButton > button {
-        width: 100%;
-        }
-        
-    </style>
-""")
 
 
 
