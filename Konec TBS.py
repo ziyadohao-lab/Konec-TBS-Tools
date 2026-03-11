@@ -86,7 +86,7 @@ if st.session_state.step == 1:
 
     st.subheader("Which switch is experiencing the problem?")
 
-    col1, col2, col3, col4, col5, col6 = st.columns(6)
+    col1, col2, col3, col4, col5 = st.columns(5)
 
     if col1.button("Entry"):
         next_step(2)
@@ -105,8 +105,8 @@ if st.session_state.step == 1:
 
     st.write("")
 
-    if col6.button("Back", key="black_btn"):
-        next_step(0)
+    if st.button("Back", key="black_btn"):
+    next_step(1)
 
 
 # Entry Switch Common Issue
@@ -302,6 +302,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
