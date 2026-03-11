@@ -219,7 +219,7 @@ if st.session_state.step == 7:
 # both green light on?
 if st.session_state.step == 8:
 
-    st.subheader("Is circuit breaker ON/OFF?")
+    st.subheader("Both green light on?")
 
     col1, col2= st.columns(2)
 
@@ -354,6 +354,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
