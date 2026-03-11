@@ -183,7 +183,7 @@ if st.session_state.step == 5:
     if st.button("Back", key="black_btn"):
         next_step(4)
     
-    st.image("AP Light.png", width=600)
+    st.image("AP Light.png", width=500)
 
 # 打开电闸
 if st.session_state.step == 6:
@@ -215,7 +215,7 @@ if st.session_state.step == 7:
     if st.button("Back", key="black_btn"):
         next_step(5)    
     
-    st.image("AP Light.png", width=200)
+    st.image("AP Light.png", width=500)
 
 # both green light on?
 if st.session_state.step == 8:
@@ -238,7 +238,7 @@ if st.session_state.step == 8:
     if st.button("Back", key="black_btn"):
         next_step(7)
 
-    st.image("AP Light.png", width=200)
+    st.image("AP Light.png", width=500)
 
 # Is the orange light on？(near the AP network port.)
 if st.session_state.step == 9:
@@ -265,7 +265,7 @@ if st.session_state.step == 9:
         else:
             next_step(5)
 
-    st.image("AP Light.png", width=200)
+    st.image("AP Light.png", width=500)
 
 
 
@@ -355,6 +355,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
