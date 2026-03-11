@@ -112,7 +112,7 @@ elif st.session_state.step == 2:
 
     st.subheader("Common Issue")
 
-    col0, col1, col2, col3 = st.columns(4)
+    col1, col2, col3, col4 = st.columns(4)
 
     if col1.button("Issue1", key="red_btn"):
         st.session_state.code = 8000000
@@ -296,3 +296,4 @@ st.html("""
         }
     </style>
 """)
+
