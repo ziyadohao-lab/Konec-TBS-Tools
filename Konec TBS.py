@@ -88,7 +88,7 @@ if st.session_state.step == 1:
 
     col1, col2, col3, col4, col5, col6 = st.columns(6)
 
-    if col1.button("Entry"):
+    if col1.button("Entry，key="my_red_btn""):
         next_step(2)
 
     if col2.button("Bathroom"):
@@ -260,3 +260,19 @@ elif st.session_state.step == 2001:
         st.session_state.code = 8000000
         st.rerun()
 
+
+st.html("""
+    <style>
+        /* 定位到带有特定 key 的按钮 */
+        .st-key-my_red_btn button {
+            background-color: #ff4b4b !important;
+            color: white !important;
+            border: none;
+        }
+        /* 悬停效果 */
+        .st-key-my_red_btn button:hover {
+            background-color: #ff3333 !important;
+            border: none;
+        }
+    </style>
+""")
