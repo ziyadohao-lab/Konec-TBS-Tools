@@ -284,7 +284,7 @@ st.html("""
             border: none;
         }
         
-        .st-key_red_btn button {
+        .st-key-red_btn button {
             background-color: #ff8888 !important;
             color: black !important;
             border: none;
@@ -296,4 +296,5 @@ st.html("""
         
     </style>
 """)
+
 
