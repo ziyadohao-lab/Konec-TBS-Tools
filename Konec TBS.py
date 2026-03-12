@@ -42,6 +42,7 @@ if st.session_state.code is not None:
         st.device_num = 0
         st.AP_num = 0
         st.orange_num = 0
+        st.orange_num = 0
         st.rerun()
 
     st.stop()
@@ -509,6 +510,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
