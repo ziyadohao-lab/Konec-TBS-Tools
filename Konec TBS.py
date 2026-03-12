@@ -278,7 +278,7 @@ if st.session_state.step == 10:
     col1, col2= st.columns(2)
 
     if col1.button("Online", key="green_btn"):
-        next_step(10)
+        next_step(12)
         gateway_num = 1
 
     if col2.button("Offline", key="red_btn"):
@@ -509,6 +509,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
