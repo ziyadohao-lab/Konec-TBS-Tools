@@ -122,7 +122,7 @@ if st.session_state.step == 2:
 # 网关离线
 if st.session_state.step == 3:
 
-    st.subheader("Are all devices online or offline?")
+    st.subheader("Is Konec gateway online/offline?")
 
     col1, col2= st.columns(2)
 
@@ -509,6 +509,7 @@ st.html("""
         
     </style>
 """)
+
 
 
 
