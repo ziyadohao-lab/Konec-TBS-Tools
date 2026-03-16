@@ -10,7 +10,6 @@ if "step" not in st.session_state:
 if "code" not in st.session_state:
     st.session_state.code = None
 
-
 #Result
 if st.session_state.code is not None:
 
@@ -37,392 +36,92 @@ if st.session_state.code is not None:
         st.write("Pending, waiting for update")
 
     if st.button("Restart"):
-        st.session_state.step = 0
+        st.session_state.step = 1
         st.session_state.code = None
-        st.device_num = 0
-        st.AP_num = 0
-        st.orange_num = 0
-        st.gateway_num = 0
-        st.manhole_num = 0
         st.rerun()
 
     st.stop()
+
 
 def next_step(step):
     st.session_state.step = step
     st.rerun()
 
-# 选择设备
+# Disclaimer
 if st.session_state.step == 0:
+
+    st.subheader("Disclaimers")
+    
+    st.write("")
+    st.write("")
+
+    st.write("1. Please follow all instructions carefully and ensure compliance with AS/NZS 3000 and local regulations. Improper installation or modification may void the warranty and result in safety risks. ")
+    st.write("2. The information provided in this manual is for general guidance and reference purposes only. Konec Solutions Pty Ltd makes no representations or warranties, express or implied, regarding the completeness, accuracy, or suitability of the content. Product specifications, features, and visuals are subject to change without notice. ")
+    st.write("3. To the extent allowed by law, Konec Solutions is not liable for any damage, injury, or loss resulting from the use of this guide or the installation process. ")
+    st.write("4. This disclaimer does not affect your rights under the Australian Consumer Law or the New Zealand Consumer Guarantees Act 1993. ")
+    st.write("5. This product is designed for professional installation.")
+    st.write("6. Disconnect power before starting installation or maintenance.")
+    st.write("7. Do not exceed the product's rated electrical capacity.")
+    st.write("8. Avoid using power tools unless explicitly specified.")
+    st.write("9. Use appropriate personal protective equipment (e.g., gloves, safety glasses).")
+    st.write("10. Do not install in areas exposed to water or high humidity unless rated for such conditions.")
+    st.write("11. All content in this App including text, images, and graphics—is the property of Konec Solutions. No part may be reproduced, translated, or modified without prior written permission. ")
+
+    st.write("")
+    st.write("")
+
+    col1 = st.columns(1)
+
+    if col1.button("I Agree", key = "green_btn"):
+        next_step(1)
+
+
+# Select device
+if st.session_state.step == 1:
 
     st.subheader("Select the problematic device")
 
-    col1, col2, col3, col4, col5 = st.columns(5)
+    col1, col2, col3, col4, col5, col6 = st.columns(6)
 
     if col1.button("Switch"):
-        st.device_num = 1
-        next_step(1)
+        next_step(2)
 
     if col2.button("Lock"):
-        st.device_num = 2
-        next_step(1)
+        next_step(2)
 
     if col3.button("HPS"):
-        st.device_num = 3
-        next_step(1)
+        next_step(2)
 
     if col4.button("GPO"):
-        st.device_num = 4
-        next_step(1)
+        next_step(2)
 
-    if col5.button("AC Gateway"):
-        st.device_num = 5
-        next_step(1)
+    if col5.button("A/C Gateway"):
+        next_step(2)
+
+    if col6.button("HID Access"):
+        next_step(2)
 
 
-# 设备离线
-if st.session_state.step == 1:
+# 
+if st.session_state.step == 2:
 
     st.subheader("Is the device online or offline?")
 
     col1, col2= st.columns(2)
 
     if col1.button("Online", key="green_btn"):
-        next_step(1000)
-
-    if col2.button("Offline", key="red_btn"):
-        next_step(2)
-
-    st.write("")
-        
-    st.write("")
-
-    if st.button("Back", key="black_btn"):
-        next_step(1)
-
-
-# 所有设备离线
-if st.session_state.step == 2:
-
-    st.subheader("Are all devices online or offline?")
-
-    col1, col2= st.columns(2)
-
-    if col1.button("Online", key="green_btn"):
-        next_step(9999)
-
-    if col2.button("Offline", key="red_btn"):
-        next_step(3)
-
-    st.write("")
-        
-    st.write("")
-
-    if st.button("Back", key="black_btn"):
-        next_step(1)
-
-# 网关离线
-if st.session_state.step == 3:
-
-    st.subheader("Is Konec gateway online/offline?")
-
-    col1, col2= st.columns(2)
-
-    if col1.button("Online", key="green_btn"):
-        st.session_state.code = 3
-        st.rerun()
-
-    if col2.button("Offline", key="red_btn"):
-        next_step(4)
-
-    st.write("")
-        
-    st.write("")
-
-    if st.button("Back", key="black_btn"):
-        next_step(2)
-
-# 电闸
-if st.session_state.step == 4:
-
-    st.subheader("Is circuit breaker ON/OFF?")
-
-    col1, col2= st.columns(2)
-
-    if col1.button("ON", key="green_btn"):
-        next_step(5)
-
-    if col2.button("OFF", key="red_btn"):
-        next_step(6)
-
-    st.write("")
-        
-    st.write("")
-
-    if st.button("Back", key="black_btn"):
-        next_step(3)
-
-# 网关离线
-if st.session_state.step == 5:
-
-    st.subheader("Are both indicator lights on the AP constantly on?")
-
-
-    if st.button("No green light on"):
-        st.AP_num = 1
-        next_step(7)
-
-    if st.button("One green light on"):
-        st.session_state.code = 2
-        st.rerun()
-
-    if st.button("Both green lights on"):
-        st.AP_num = 2
-        next_step(9)
-
-    st.write("")
-
-    st.write("")
-
-    if st.button("Back", key="black_btn"):
-        next_step(4)
-    
-    st.image("AP Light.png", width=500)
-
-# 打开电闸
-if st.session_state.step == 6:
-
-    st.subheader("Turn on circuit breaker")
-    st.subheader("Wait a few minutes")
-    st.write("")
-    
-    st.write("")
-
-    if st.button("Next", key="green_btn"):
-        next_step(5)
-    
-    if st.button("Back", key="black_btn"):
-        next_step(4)
-
-# No green light on
-if st.session_state.step == 7:
-
-    st.subheader("Switch the ports connected by the blue cable")
-    st.subheader("Wait a few minutes")
-    st.write("")
-    
-    st.write("")
-
-    if st.button("Next", key="green_btn"):
-        next_step(8)
-
-    if st.button("Back", key="black_btn"):
-        next_step(5)    
-    
-    st.image("AP Light.png", width=500)
-
-# both green light on?
-if st.session_state.step == 8:
-
-    st.subheader("Both green light on?")
-
-    col1, col2= st.columns(2)
-
-    if col1.button("Yes", key="green_btn"):
-        next_step(9)
-
-    if col2.button("No", key="red_btn"):
-        st.session_state.code = 2
-        st.rerun()
-
-    st.write("")
-        
-    st.write("")
-
-    if st.button("Back", key="black_btn"):
-        next_step(7)
-
-    st.image("AP Light.png", width=500)
-
-# Is the orange light on？(near the AP network port.)
-if st.session_state.step == 9:
-
-    st.subheader("Is the orange light on?(near the AP network port.)")
-
-    col1, col2= st.columns(2)
-
-    if col1.button("Yes", key="green_btn"):
-        next_step(10)
-        orange_num = 1
-
-    if col2.button("No", key="red_btn"):
-        next_step(11)
-        orange_num = 2
-
-    st.write("")
-        
-    st.write("")
-
-    if st.button("Back", key="black_btn"):
-        if st.AP_num == 1:
-            next_step(8)
-        else:
-            next_step(5)
-
-    st.image("AP Light.png", width=500)
-
-# Is Konec gateway online / offline
-if st.session_state.step == 10:
-
-    st.subheader("Is Konec gateway online / offline")
-    st.write("The gateway status light on AP is on, but the gateway itself is still offline.")
-
-    col1, col2= st.columns(2)
-
-    if col1.button("Online", key="green_btn"):
-        next_step(12)
-        gateway_num = 1
-
-    if col2.button("Offline", key="red_btn"):
-        next_step(11)
-        gateway_num = 2
-
-    st.write("")
-        
-    st.write("")
-
-    if st.button("Back", key="black_btn"):
-        next_step(9)
-
-# Check Konec gateway status in the manhole
-if st.session_state.step == 11:
-
-    st.subheader("Check Konec gateway status in the manhole")
-    st.write("Check the power connection of the gateway / Re-plug the power adapter.")
-    st.write("Note: Do not replace the original adapter, as its voltage is different from standard specifications.")
-
-    col1, col2, col3= st.columns(3)
-
-    if col1.button("One light on"):
-        next_step(13)
-        manhole_num = 1
-
-    if col2.button("No light on"):
-        next_step(14)
-        manhole_num = 2
-
-    if col3.button("Starts with two lights, then goes down to one, and then all of them turn off."):
-        st.session_state.code = 4
-        st.rerun()
-
-    st.write("")
-        
-    st.write("")
-
-    if st.button("Back", key="black_btn"):
-        if st.orange_num == 1:
-            next_step(10)
-        else:
-            next_step(9)
-
-# Are the other devices in the room offline / online?
-if st.session_state.step == 12:
-
-    st.subheader("Are the other devices in the room offline / online?")
-
-    col1, col2= st.columns(2)
-
-    if col1.button("Online", key="green_btn"):
-        next_step(15)
-
-    if col2.button("Offline", key="red_btn"):
-        st.session_state.code = 3
-        st.rerun()
-
-    st.write("")
-        
-    st.write("")
-
-    if st.button("Back", key="black_btn"):
-        if st.gateway_num == 1:
-            next_step(10)
-        else:
-            next_step(13)
-
-# Is Konec gateway online / offline
-if st.session_state.step == 13:
-
-    st.subheader("Is Konec gateway online / offline?")
-
-    col1, col2= st.columns(2)
-
-    if col1.button("Online", key="green_btn"):
-        next_step(12)
-
-
-    if col2.button("Offline", key="red_btn"):
-        st.session_state.code = 3
-        st.rerun()
-
-    st.write("")
-        
-    st.write("")
-
-    if st.button("Back", key="black_btn"):
-        if st.manhole_num == 1:
-            next_step(11)
-        else:
-            next_step(14)
-
-# Check the network cable connection / Re-plug the cable
-if st.session_state.step == 14:
-
-    st.subheader("Check the network cable connection / Re-plug the cable")
-
-    col1, col2= st.columns(2)
-
-    if col1.button("One light on"):
-        next_step(13)
-
-
-    if col2.button("No light on"):
-        st.session_state.code = 3
-        st.rerun()
-
-    st.write("")
-        
-    st.write("")
-
-    if st.button("Back", key="black_btn"):
-        next_step(11)
-
-# Does the defect still exist?
-if st.session_state.step == 15:
-
-    st.subheader("Does the defect still exist? Are there any other defects?")
-
-    col1, col2= st.columns(2)
-
-    if col1.button("Yes"):
-        next_step(99)
-
-    if col2.button("No"):
-        st.session_state.code = 9999999
-        st.rerun()
-
-    st.write("")
-        
-    st.write("")
-
-    if st.button("Back", key="black_btn"):
-        next_step(14)
-
-
-if st.session_state.step == 99:
         st.session_state.code = 8000000
         st.rerun()
 
+    if col2.button("Offline", key="red_btn"):
+        next_step(3)
 
+    st.write("")
+        
+    st.write("")
+
+    if st.button("Back", key="black_btn"):
+        next_step(1)
 
 
 
@@ -471,7 +170,6 @@ elif st.session_state.step == 9999:
         st.session_state.code = 8000000
         st.rerun()
 
-
 st.html("""
     <style>
 
@@ -511,23 +209,3 @@ st.html("""
         
     </style>
 """)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
