@@ -72,7 +72,7 @@ if st.session_state.step == 0:
 
     col1 = st.columns(1)
 
-    if col1.button("I Agree", key = "green_btn"):
+    if col1.button("I Agree"):
         next_step(1)
 
 
