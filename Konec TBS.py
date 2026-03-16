@@ -70,9 +70,7 @@ if st.session_state.step == 0:
     st.write("")
     st.write("")
 
-    col1 = st.columns(1)
-
-    if col1.button("I Agree"):
+    if st.button("I Agree", key = "green_btn"):
         next_step(1)
 
 
