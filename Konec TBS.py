@@ -367,7 +367,7 @@ if st.session_state.step == 1:
         next_step(2)
 
     if col6.button("HID Access"):
-        next_step(2)
+        next_step(350)
 
 
 # Is the device online or offline?
