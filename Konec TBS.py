@@ -1227,14 +1227,14 @@ if st.session_state.step == 271:
     if st.button("The indicator light status is abnormal. (Always On / Off)"):
         next_step(272)
 
-    if st.button("Traditional control issue - Switch, GPO\ne.g. Switch cannot control the light"):
+    if st.button("Traditional control issue - Switch, GPO. e.g. Switch cannot control the light"):
         num275_num = 1
         next_step(275)
 
     if st.button("The resident is unable to control device using the app."):
         next_step(277)
 
-    if st.button("Multi-control issue\nMulti-Gang Switch & Mainlight Switch"):
+    if st.button("Multi-control issue. Multi-Gang Switch & Mainlight Switch"):
         next_step(280)
 
     if st.button("Automation control issue - Kitchen Switch & Cooktop Switch"):
