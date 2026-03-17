@@ -283,8 +283,8 @@ if st.session_state.code is not None:
                  If there is an authorization issue with Innerrange, please contact Konec and provide the resident's account, app logs, and phone model.""")
 
     elif code == 64:
-        st.write("""Add public area device authorizations for the resident.
-                 If the issue persists, please check whether the resident has been granted access in Innerrange.
+        st.write("""Add public area device authorizations for the resident.\n
+                 If the issue persists, please check whether the resident has been granted access in Innerrange.\n
                  If there is an authorization issue with Innerrange, please contact Konec and provide the resident's account, app logs, and phone model.""")
 
     elif code == 65:
