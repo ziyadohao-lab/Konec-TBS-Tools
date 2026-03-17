@@ -1124,7 +1124,7 @@ if st.session_state.step == 251:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(20)
+        next_step(200)
 
 
 # Are the IoT devices able to be controlled IoT via APP?
@@ -1146,7 +1146,7 @@ if st.session_state.step == 252:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(231)
+        next_step(251)
 
 
 # Is the automation set up correctly / abled?
