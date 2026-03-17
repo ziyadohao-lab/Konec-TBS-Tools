@@ -1240,7 +1240,7 @@ if st.session_state.step == 271:
     if st.button("Automation control issue - Kitchen Switch & Cooktop Switch"):
         next_step(282)
 
-    if st.button("GPO type C changer doesnt work"):
+    if st.button("GPO type-C changer doesn't work"):
         next_step(284)
 
     st.write("")
