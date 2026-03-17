@@ -600,7 +600,7 @@ if st.session_state.step == 12:
 
 if st.session_state.step == 51:
 
-    st.subheader("After connecting the lock to a power bank, can the front panel be lit up?")
+    st.subheader("Is the indicator light status normal?")
 
     col1, col2, col3= st.columns(3)
 
@@ -631,11 +631,11 @@ if st.session_state.step == 52:
     col1, col2= st.columns(2)
 
     if col1.button("ON", key="green_btn"):
-        st.session_state.code = 11
+        st.session_state.code = 12
         st.rerun()
 
     if col2.button("OFF", key="red_btn"):
-        st.session_state.code = 12
+        st.session_state.code = 11
         st.rerun()
 
     st.write("")
@@ -905,7 +905,7 @@ if st.session_state.step == 201:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(20)
+        next_step(200)
 
 
 # Does the device display in the app?
@@ -1050,7 +1050,7 @@ if st.session_state.step == 231:
     st.subheader("Common Issue")
 
     if st.button("The resident is unable to control A/C via APP"):
-        next_step(203)
+        next_step(232)
 
 
     st.write("")
@@ -1058,7 +1058,7 @@ if st.session_state.step == 231:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(200)
+        next_step(232)
 
 
 # Does the device display in the app?
@@ -1080,7 +1080,7 @@ if st.session_state.step == 232:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(232)
+        next_step(231)
 
 
 # Is the resident able to control A/C via control panel?
