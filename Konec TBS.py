@@ -264,8 +264,8 @@ if st.session_state.code is not None:
         st.write("Contact Konec to check and reset automation")
 
     elif code == 59:
-        st.write("""Re-plug both the cable and the gateway power adapter.
-                 If the issue persists, please contact Konec to check and reset automation""")
+        st.write("Re-plug both the cable and the gateway power adapter.")
+        st.write("If the issue persists, please contact Konec to check and reset automation")
 
     elif code == 60:
         st.write("Contact an electrician to check the wiring or replace the device.")
@@ -277,15 +277,15 @@ if st.session_state.code is not None:
         st.write("Please contact Konec and provide the resident's account, app logs, and phone model.")
 
     elif code == 63:
-        st.write("""Add public area device authorizations for the room.
-                 Add public area device authorizations for the resident.
-                 If the issue persists, please check whether the resident has been granted access in Innerrange.
-                 If there is an authorization issue with Innerrange, please contact Konec and provide the resident's account, app logs, and phone model.""")
+        st.write("Add public area device authorizations for the room.")
+        st.write("Add public area device authorizations for the resident.")
+        st.write("If the issue persists, please check whether the resident has been granted access in Innerrange.")
+        st.write("If there is an authorization issue with Innerrange, please contact Konec and provide the resident's account, app logs, and phone model.")
 
     elif code == 64:
-        st.write("""Add public area device authorizations for the resident.\n
-                 If the issue persists, please check whether the resident has been granted access in Innerrange.\n
-                 If there is an authorization issue with Innerrange, please contact Konec and provide the resident's account, app logs, and phone model.""")
+        st.write("Add public area device authorizations for the resident.")
+        st.write("If the issue persists, please check whether the resident has been granted access in Innerrange.")
+        st.write("If there is an authorization issue with Innerrange, please contact Konec and provide the resident's account, app logs, and phone model.")
 
     elif code == 65:
         st.write("Contact PMS.")
