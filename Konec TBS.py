@@ -378,8 +378,7 @@ if st.session_state.step == 2:
     col1, col2= st.columns(2)
 
     if col1.button("Online", key="green_btn"):
-        st.session_state.code = 200
-        st.rerun()
+        next_step(200)
 
     if col2.button("Offline", key="red_btn"):
         next_step(3)
