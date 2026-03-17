@@ -857,7 +857,7 @@ if st.session_state.step == 200:
     col1, col2, col3, col4= st.columns(4)
 
     if col1.button("Online Lock"):
-        next_step(202)
+        next_step(201)
 
     if col2.button("Online A/C Gateway"):
         next_step(231)
