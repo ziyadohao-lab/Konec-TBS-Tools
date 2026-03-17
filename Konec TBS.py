@@ -254,8 +254,8 @@ if st.session_state.code is not None:
         st.write("Please follow the troubleshooting steps for control issue to ensure both devices are back online.")
 
     elif code == 56:
-        st.write("""Re-plug both the cable and the gateway power adapter.
-                 If the issue persists, please contact Konec to check and reset multi-control.""")
+        st.write("Re-plug both the cable and the gateway power adapter.")
+        st.write("If the issue persists, please contact Konec to check and reset multi-control.")
 
     elif code == 57:
         st.write("Please follow the troubleshooting steps for control issue to ensure both devices are back online.")
