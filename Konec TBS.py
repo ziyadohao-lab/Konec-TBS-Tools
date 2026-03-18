@@ -305,12 +305,12 @@ if st.session_state.code is not None:
     if st.button("Restart"):
         st.session_state.step = 1
         st.session_state.code = None
-        st.Iot_num = 0
-        st.num232_num = 0
-        st.num274_num = 0
-        st.num275_num = 0
-        st.num277_num = 0
-        st.product_num = 0
+        st.session_state.Iot_num = 0
+        st.session_state.num232_num = 0
+        st.session_state.num274_num = 0
+        st.session_state.num275_num = 0
+        st.session_state.num277_num = 0
+        st.session_state.product_num = 0
         st.rerun()
 
     st.stop()
@@ -355,23 +355,23 @@ if st.session_state.step == 1:
     col1, col2, col3, col4, col5, col6 = st.columns(6)
 
     if col1.button("Switch"):
-        product_num = 1
+        st.session_state.product_num = 1
         next_step(2)
 
     if col2.button("Lock"):
-        product_num = 2
+        st.session_state.product_num = 2
         next_step(2)
 
     if col3.button("HPS"):
-        product_num = 3
+        st.session_state.product_num = 3
         next_step(2)
 
     if col4.button("Socket"):
-        product_num = 1
+        st.session_state.product_num = 1
         next_step(2)
 
     if col5.button("A/C Gateway"):
-        product_num = 5
+        st.session_state.product_num = 5
         next_step(2)
 
     if col6.button("HID Access"):
@@ -496,17 +496,17 @@ if st.session_state.step == 7:
 
     col1, col2, col3, col4= st.columns(4)
 
-    if product_num == 2:
+    if st.session_state.product_num == 2:
         next_step(9)
 
-    if product_num == 5:
+    if st.session_state.product_num == 5:
         st.session_state.code = 10
         st.rerun()
 
-    if product_num == 3:
+    if st.session_state.product_num == 3:
         next_step(51)
 
-    if product_num == 1:
+    if st.session_state.product_num == 1:
         next_step(71)
 
     st.write("")
@@ -863,16 +863,16 @@ if st.session_state.step == 200:
 
     col1, col2, col3, col4= st.columns(4)
 
-    if product_num == 2:
+    if st.session_state.product_num == 2:
         next_step(201)
 
-    if product_num == 5:
+    if st.session_state.product_num == 5:
         next_step(231)
 
-    if product_num == 3:
+    if st.session_state.product_num == 3:
         next_step(251)
 
-    if product_num == 1:
+    if st.session_state.product_num == 1:
         next_step(271)
 
     st.write("")
@@ -1058,7 +1058,7 @@ if st.session_state.step == 231:
     st.subheader("Common Issue")
 
     if st.button("The resident is unable to control A/C via APP"):
-        num232_num = 1
+        st.session_state.num232_num = 1
         next_step(232)
 
 
@@ -1089,7 +1089,7 @@ if st.session_state.step == 232:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        if num232_num == 1:
+        if st.session_state.num232_num == 1:
             next_step(231)
         else:
             next_step(256)
@@ -1124,11 +1124,11 @@ if st.session_state.step == 251:
     st.subheader("Common Issue")
 
     if st.button("Automation is not working: The IoT device does not turned off automatically in the absence of people."):
-        Iot_num = 1
+        st.session_state.Iot_num = 1
         next_step(252)
 
     if st.button("Automation is not behaving correctly: The IoT devices automatically turns off after a period of time even n the presence of people."):
-        Iot_num = 2
+        st.session_state.Iot_num = 2
         next_step(254)
 
     st.write("")
@@ -1225,7 +1225,7 @@ if st.session_state.step == 255:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        if Iot_num == 1:
+        if st.session_state.Iot_num == 1:
             next_step(253)
         else:
             next_step(254)
@@ -1239,11 +1239,11 @@ if st.session_state.step == 256:
     col1, col2 = st.columns(2)
 
     if col1.button("A/C Gateway"):
-        st.num232_num = 2
+        st.session_state.num232_num = 2
         next_step(232)
 
     if col2.button("Switch/Socket"):
-        num277_num = 3
+        st.session_state.num277_num = 3
         next_step(277)
 
     st.write("")
@@ -1263,11 +1263,11 @@ if st.session_state.step == 271:
         next_step(272)
 
     if st.button("Traditional control issue - Switch, Socket. e.g. Switch cannot control the light"):
-        num275_num = 1
+        st.session_state.num275_num = 1
         next_step(275)
 
     if st.button("The resident is unable to control device using the app."):
-        num277_num = 1
+        st.session_state.num277_num = 1
         next_step(277)
 
     if st.button("Multi-control issue. Multi-Gang Switch & Mainlight Switch"):
@@ -1298,7 +1298,7 @@ if st.session_state.step == 272:
         next_step(273)
 
     if col2.button("NO", key="red_btn"):
-        num274_num = 1
+        st.session_state.num274_num = 1
         next_step(274)
 
     st.write("")
@@ -1352,7 +1352,7 @@ if st.session_state.step == 274:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        if num274_num == 1:
+        if st.session_state.num274_num == 1:
             next_step(272)
         else:
             next_step(275)
@@ -1370,7 +1370,7 @@ if st.session_state.step == 275:
 
 
     if col2.button("NO", key="red_btn"):
-        num274_num = 2
+        st.session_state.num274_num = 2
         next_step(274)
 
     st.write("")
@@ -1378,7 +1378,7 @@ if st.session_state.step == 275:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        if num275_num == 1:
+        if st.session_state.num275_num == 1:
             next_step(271)
         else:
             next_step(278)
@@ -1425,11 +1425,11 @@ if st.session_state.step == 277:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        if num277_num == 1:
+        if st.session_state.num277_num == 1:
             next_step(271)
-        elif num277_num == 2:
+        elif st.session_state.num277_num == 2:
             next_step(280)
-        elif num277_num == 3:
+        elif st.session_state.num277_num == 3:
             next_step(282)
         else:
             next_step(256)
@@ -1447,7 +1447,7 @@ if st.session_state.step == 278:
         st.rerun()
 
     if col2.button("NO", key="red_btn"):
-        num275_num = 2
+        st.session_state.num275_num = 2
         next_step(275)
 
     st.write("")
@@ -1492,7 +1492,7 @@ if st.session_state.step == 280:
         next_step(281)
 
     if col2.button("NO", key="red_btn"):
-        num277_num == 2
+        st.session_state.num277_num == 2
         next_step(277)
 
     st.write("")
@@ -1537,7 +1537,7 @@ if st.session_state.step == 282:
         next_step(283)
 
     if col2.button("NO", key="red_btn"):
-        num277_num = 3
+        st.session_state.num277_num = 3
         next_step(277)
 
     st.write("")
