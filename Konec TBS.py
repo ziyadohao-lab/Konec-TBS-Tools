@@ -535,7 +535,7 @@ if st.session_state.step == 9:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(7)
+        next_step(3)
 
 
 # Is it possible to enter the room with any of these: PIN code, fob key, or physical key?
@@ -628,7 +628,7 @@ if st.session_state.step == 51:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(7)
+        next_step(3)
 
 
 # Is circuit breaker on / off?
@@ -674,7 +674,7 @@ if st.session_state.step == 71:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(7)
+        next_step(3)
 
 
 # Can external devices be controlled?
@@ -913,7 +913,7 @@ if st.session_state.step == 201:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(200)
+        next_step(2)
 
 
 # Does the device display in the app?
@@ -1067,7 +1067,7 @@ if st.session_state.step == 231:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(232)
+        next_step(2)
 
 
 # Does the device display in the app?
@@ -1136,7 +1136,7 @@ if st.session_state.step == 251:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(200)
+        next_step(2)
 
 
 # Are the IoT devices able to be controlled IoT via APP?
@@ -1284,7 +1284,7 @@ if st.session_state.step == 271:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(200)
+        next_step(2)
 
 
 # Can external devices be controlled?
