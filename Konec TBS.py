@@ -306,8 +306,11 @@ if st.session_state.code is not None:
         st.session_state.step = 1
         st.session_state.code = None
         st.Iot_num = 0
+        st.num232_num = 0
         st.num274_num = 0
         st.num275_num = 0
+        st.num277_num = 0
+        st.product_num = 0
         st.rerun()
 
     st.stop()
@@ -352,18 +355,23 @@ if st.session_state.step == 1:
     col1, col2, col3, col4, col5, col6 = st.columns(6)
 
     if col1.button("Switch"):
+        product_num = 1
         next_step(2)
 
     if col2.button("Lock"):
+        product_num = 2
         next_step(2)
 
     if col3.button("HPS"):
+        product_num = 3
         next_step(2)
 
-    if col4.button("GPO"):
+    if col4.button("Socket"):
+        product_num = 1
         next_step(2)
 
     if col5.button("A/C Gateway"):
+        product_num = 5
         next_step(2)
 
     if col6.button("HID Access"):
@@ -488,17 +496,17 @@ if st.session_state.step == 7:
 
     col1, col2, col3, col4= st.columns(4)
 
-    if col1.button("Offline Lock"):
+    if product_num == 2:
         next_step(9)
 
-    if col2.button("Offline A/C Gateway"):
+    if product_num == 5:
         st.session_state.code = 10
         st.rerun()
 
-    if col3.button("Offline Human Presence Sensor"):
+    if product_num == 3:
         next_step(51)
 
-    if col4.button("Offline Switch/Offline GPO"):
+    if product_num == 1:
         next_step(71)
 
     st.write("")
@@ -855,16 +863,16 @@ if st.session_state.step == 200:
 
     col1, col2, col3, col4= st.columns(4)
 
-    if col1.button("Online Lock"):
+    if product_num == 2:
         next_step(201)
 
-    if col2.button("Online A/C Gateway"):
+    if product_num == 5:
         next_step(231)
 
-    if col3.button("Online Human Presence Sensor"):
+    if product_num == 3:
         next_step(251)
 
-    if col4.button("Online Switch/Online GPO"):
+    if product_num == 1:
         next_step(271)
 
     st.write("")
@@ -1050,6 +1058,7 @@ if st.session_state.step == 231:
     st.subheader("Common Issue")
 
     if st.button("The resident is unable to control A/C via APP"):
+        num232_num = 1
         next_step(232)
 
 
@@ -1080,7 +1089,10 @@ if st.session_state.step == 232:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(231)
+        if num232_num == 1:
+            next_step(231)
+        else:
+            next_step(256)
 
 
 # Is the resident able to control A/C via control panel?
@@ -1138,8 +1150,7 @@ if st.session_state.step == 252:
         next_step(253)
 
     if col2.button("NO", key="red_btn"):
-        st.session_state.code = 40
-        st.rerun()
+        next_step(256)
 
     st.write("")
         
@@ -1169,6 +1180,7 @@ if st.session_state.step == 253:
 
     if st.button("Back", key="black_btn"):
         next_step(252)
+
 
 
 # Is the parameter set correctly? Low sensitivity - 4dm
@@ -1219,6 +1231,29 @@ if st.session_state.step == 255:
             next_step(254)
 
 
+# Are the IoT devices able to be controlled IoT via APP?
+if st.session_state.step == 256:
+
+    st.subheader("Are the IoT devices able to be controlled IoT via APP?")
+
+    col1, col2 = st.columns(2)
+
+    if col1.button("A/C Gateway"):
+        st.num232_num = 2
+        next_step(232)
+
+    if col2.button("Switch/Socket"):
+        num277_num = 3
+        next_step(277)
+
+    st.write("")
+        
+    st.write("")
+
+    if st.button("Back", key="black_btn"):
+        next_step(252)
+
+
 # Common Issue for Lock
 if st.session_state.step == 271:
 
@@ -1227,11 +1262,12 @@ if st.session_state.step == 271:
     if st.button("The indicator light status is abnormal. (Always On / Off)"):
         next_step(272)
 
-    if st.button("Traditional control issue - Switch, GPO. e.g. Switch cannot control the light"):
+    if st.button("Traditional control issue - Switch, Socket. e.g. Switch cannot control the light"):
         num275_num = 1
         next_step(275)
 
     if st.button("The resident is unable to control device using the app."):
+        num277_num = 1
         next_step(277)
 
     if st.button("Multi-control issue. Multi-Gang Switch & Mainlight Switch"):
@@ -1389,7 +1425,14 @@ if st.session_state.step == 277:
     st.write("")
 
     if st.button("Back", key="black_btn"):
-        next_step(271)
+        if num277_num == 1:
+            next_step(271)
+        elif num277_num == 2:
+            next_step(280)
+        elif num277_num == 3:
+            next_step(282)
+        else:
+            next_step(256)
 
 
 # Can residents control external devices by operating physical buttons?
@@ -1448,10 +1491,9 @@ if st.session_state.step == 280:
     if col1.button("YES", key="green_btn"):
         next_step(281)
 
-
     if col2.button("NO", key="red_btn"):
-        st.session_state.code = 55
-        st.rerun()
+        num277_num == 2
+        next_step(277)
 
     st.write("")
         
@@ -1495,8 +1537,8 @@ if st.session_state.step == 282:
         next_step(283)
 
     if col2.button("NO", key="red_btn"):
-        st.session_state.code = 57
-        st.rerun()
+        num277_num = 3
+        next_step(277)
 
     st.write("")
         
